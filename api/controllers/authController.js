@@ -76,9 +76,9 @@ const login = async (req, res) => {
 
         // Set cookie and send response
         res.cookie('token', token, {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
+          httpOnly: false,
+          secure: true,
+          sameSite: 'none',
           maxAge: 3600000 // 1 hour
         }).json({
           id: user._id,
