@@ -76,7 +76,7 @@ npm run dev
 ### 5️⃣ Open in Browser
 Visit http://localhost:5173 to access the platform.
 
-🎨 Screenshots
+### 🎨 Screenshots
 
 🌟 Homepage
 
@@ -86,19 +86,24 @@ Visit http://localhost:5173 to access the platform.
 
 ![image](https://github.com/user-attachments/assets/8f2d1f29-8031-44c4-b903-b96ab11f00cb)
 
-🌐 Deployment
+### 🌐 Deployment
 
 🔗 Live Demo: [(https://blogging-hub-dcb6.onrender.com/)](https://blogging-hub-dcb6.onrender.com/)
 
-🤝 Contribution
+### 🤝 Contribution
+
 Feel free to fork this repository, submit issues, or make pull requests. Contributions are highly appreciated! 🎉
 
-🛠️ Future Enhancements
+### 🛠️ Future Enhancements
+
 Adding user profiles.
+
 Implementing tags and categories for posts.
+
 Enhancing blog post search functionality.
 
-👨‍💻 Developed by Satyam Shukla
+### 👨‍💻 Developed by Satyam Shukla
+
 💬 Feel free to reach out for collaboration or suggestions!
 
 
