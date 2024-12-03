@@ -37,23 +37,23 @@ const Header = () => {
   }
 
   const performLogout = () => {
-    fetch('http://localhost:3000/auth/logout', {
-      method: 'POST',
-      credentials: 'include',
+    fetch("https://blogginghub-5pp8.onrender.com/auth/logout", {
+      method: "POST",
+      credentials: "include",
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setUserinfo(null);
         const toastId = toast.success("Logged out successfully");
         setTimeout(() => {
           toast.dismiss(toastId);
         }, 2000);
         setTimeout(() => {
-          navigate('/login')
-        }, 1000)
+          navigate("/login");
+        }, 1000);
       })
-      .catch(error => {
-        console.error('Fetch error:', error);
+      .catch((error) => {
+        console.error("Fetch error:", error);
         toast.error("An error occurred during logout");
       });
   }
@@ -61,14 +61,14 @@ const Header = () => {
   const email = userinfo?.email;
 
   useEffect(() => {
-    fetch('https://blogg-xs4m.onrender.com/auth/profile', {
-      method: 'GET',
-      credentials: 'include',
+    fetch("https://blogginghub-5pp8.onrender.com/auth/profile", {
+      method: "GET",
+      credentials: "include",
     })
-      .then(response => response.json())
-      .then(data => setUserinfo(data))
-      .catch(error => {
-        console.error('Fetch error:', error);
+      .then((response) => response.json())
+      .then((data) => setUserinfo(data))
+      .catch((error) => {
+        console.error("Fetch error:", error);
         toast.error("Failed to fetch user profile");
       });
   }, []);

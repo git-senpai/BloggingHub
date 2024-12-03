@@ -40,14 +40,17 @@ const CreatePost = () => {
 
     setIsGeneratingSummary(true);
     try {
-      const response = await fetch("http://localhost:3000/ai/generate-summary", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ title }),
-      });
+      const response = await fetch(
+        "https://blogginghub-5pp8.onrender.com/ai/generate-summary",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ title }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to generate summary");
@@ -73,14 +76,17 @@ const CreatePost = () => {
 
     setIsGeneratingContent(true);
     try {
-      const response = await fetch("http://localhost:3000/ai/generate-content", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ title, summary }),
-      });
+      const response = await fetch(
+        "https://blogginghub-5pp8.onrender.com/ai/generate-content",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ title, summary }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to generate content");
@@ -115,11 +121,14 @@ const CreatePost = () => {
     
  
     try {
-      const response = await fetch("http://localhost:3000/post", {
-        method: "POST",
-        body: data,
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://blogginghub-5pp8.onrender.com/post",
+        {
+          method: "POST",
+          body: data,
+          credentials: "include",
+        }
+      );
       if (response.ok) {
         toast.success("Post created successfully");
         setTimeout(() => {

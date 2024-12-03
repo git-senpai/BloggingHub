@@ -14,7 +14,7 @@ const EditPost = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/post/" + id).then((res) => {
+    fetch("https://blogginghub-5pp8.onrender.com/post/" + id).then((res) => {
       res.json().then((postinfo) => {
         setTitle(postinfo.title);
         setContent(postinfo.content);
@@ -38,11 +38,14 @@ const EditPost = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/post", {
-        method: "PUT",
-        body: data,
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://blogginghub-5pp8.onrender.com/post",
+        {
+          method: "PUT",
+          body: data,
+          credentials: "include",
+        }
+      );
       if (response.ok) {
         toast.success("Post updated successfully");
         setTimeout(() => {

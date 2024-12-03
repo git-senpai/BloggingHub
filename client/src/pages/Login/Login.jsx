@@ -15,14 +15,17 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password, email }),
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://blogginghub-5pp8.onrender.com/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ password, email }),
+          credentials: "include",
+        }
+      );
 
       const data = await response.json();
 

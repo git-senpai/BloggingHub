@@ -12,7 +12,7 @@ const SinglePostPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/post/${id}`).then((res) => {
+    fetch(`https://blogginghub-5pp8.onrender.com/post/${id}`).then((res) => {
       res.json().then((postinfo) => {
         setPostInfo(postinfo);
       });
@@ -27,10 +27,13 @@ const SinglePostPage = () => {
           <button 
             className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300" 
             onClick={async () => {
-              const response = await fetch(`http://localhost:3000/post/${id}`, {
-                method: "DELETE",
-                credentials: "include",
-              });
+              const response = await fetch(
+                `https://blogginghub-5pp8.onrender.com/post/${id}`,
+                {
+                  method: "DELETE",
+                  credentials: "include",
+                }
+              );
 
               if (response.ok) {
                 const toastId = toast.success("Post deleted successfully");

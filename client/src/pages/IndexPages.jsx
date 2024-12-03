@@ -7,8 +7,8 @@ const IndexPages = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/post", {
-      credentials: 'include'
+    fetch("https://blogginghub-5pp8.onrender.com/post", {
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((posts) => {
