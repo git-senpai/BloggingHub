@@ -57,7 +57,9 @@ npm install
 Create a .env file in the backend directory and add the following:
 
 MONGO_URI=your-mongodb-connection-string
+
 GEMINI_API_KEY=your-gemini-api-key
+
 JWT_SECRET=your-secret-key
 
 ### 4️⃣ Start the Application
@@ -75,6 +77,7 @@ npm run dev
 Visit http://localhost:5173 to access the platform.
 
 🎨 Screenshots
+
 🌟 Homepage
 
 ![image](https://github.com/user-attachments/assets/8cd47982-240f-4c93-8cd9-e72b4b1e52e5)
@@ -84,7 +87,7 @@ Visit http://localhost:5173 to access the platform.
 ![image](https://github.com/user-attachments/assets/8f2d1f29-8031-44c4-b903-b96ab11f00cb)
 
 🌐 Deployment
-The project is deployed on Azure (or any other platform if applicable).
+
 🔗 Live Demo: [(https://blogging-hub-dcb6.onrender.com/)](https://blogging-hub-dcb6.onrender.com/)
 
 🤝 Contribution
