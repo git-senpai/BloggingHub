@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-secondary-light dark:bg-secondary-dark text-text-light dark:text-text-dark transition-colors duration-200;
+  }
+}
+
+/* Update prose styles */
+.prose {
+  @apply max-w-none;
+}
+
+.dark .prose {
+  @apply prose-invert;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  @apply text-text-dark;
+}
+
+.dark .prose p,
+.dark .prose ul,
+.dark .prose ol,
+.dark .prose blockquote {
+  @apply text-text-dark;
+}
+
+.dark .prose strong {
+  @apply text-text-dark;
+}
+
+.dark .prose a {
+  @apply text-accent-dark hover:text-accent-light;
+}
+
+.dark .prose blockquote {
+  @apply border-gray-700;
+}
+
+.dark .prose code {
+  @apply bg-gray-800 text-text-dark;
+}
+
+.dark .prose pre {
+  @apply bg-gray-800;
+}
+
+.dark .prose hr {
+  @apply border-gray-700;
+}
+
+/* Ensure form inputs are readable in dark mode */
+.dark input,
+.dark textarea {
+  @apply bg-primary-dark text-text-dark border-gray-600;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  @apply text-gray-400;
+}
+
+/* Add smooth transitions for theme changes */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Additional dark mode text styles */
+.dark .ql-editor {
+  @apply text-text-dark;
+}
+
+/* Animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    border-color: var(--accent-light);
+  }
+  50% {
+    border-color: var(--accent-dark);
+  }
+}
+
+/* Animated border class */
+.animated-border {
+  @apply relative overflow-hidden;
+}
+
+.animated-border::before {
+  content: '';
+  @apply absolute inset-0 border-2 rounded-lg;
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+/* Gradient background for special sections */
+.gradient-bg {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-all duration-300;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  @apply shadow-lg;
+}
+
+/* Loading animation */
+.loading-dots {
+  @apply flex space-x-1;
+}
+
+.loading-dots div {
+  @apply w-2 h-2 bg-accent-light dark:bg-accent-dark rounded-full;
+  animation: bounce 0.5s infinite alternate;
+}
+
+.loading-dots div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(-4px);
+  }
+}
