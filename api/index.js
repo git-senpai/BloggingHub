@@ -11,18 +11,37 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+// Define allowed origins
+const allowedOrigins = [
+  "http://localhost:5173", // Local Vite development server
+  "http://localhost:4173", // Local Vite preview
+  "https://blogginghub-client.vercel.app", // Production client
+  "https://blogginghub.vercel.app",
+  "https://blogging-hub-dcb6.onrender.com", // Render.com frontend
+];
+
 app.use(
   cors({
-    origin: true,
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl requests, etc)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        console.log("Blocked by CORS:", origin);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
-    exposedHeaders: ["set-cookie"]
+    exposedHeaders: ["set-cookie"],
   })
 );
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', true);
+  res.header("Access-Control-Allow-Credentials", true);
   next();
 });
 
@@ -41,6 +60,17 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log("Server is running on port " + PORT);
-});
+const server = app
+  .listen(PORT, () => {
+    console.log("Server is running on port " + PORT);
+  })
+  .on("error", (err) => {
+    if (err.code === "EADDRINUSE") {
+      console.log(`Port ${PORT} is busy, trying port ${PORT + 1}`);
+      app.listen(PORT + 1, () => {
+        console.log(`Server is running on port ${PORT + 1}`);
+      });
+    } else {
+      console.error("Server error:", err);
+    }
+  });
